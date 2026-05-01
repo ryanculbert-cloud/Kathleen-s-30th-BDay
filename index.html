@@ -1,0 +1,3072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="theme-color" content="#4a0e1a" />
+<title>Kathleen's 30th · Derby Day Pub Crawl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Parisienne&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8b0a1a;
+    --crimson-deep: #6b0714;
+    --crimson-soft: #a8162a;
+    --cream: #f5ecd7;
+    --cream-soft: #faf6ec;
+    --cream-deep: #ede0c4;
+    --ink: #2d1418;
+    --ink-soft: #5a4448;
+    --gold: #c9a961;
+    --gold-deep: #a8873f;
+    --rose: #e8b4b8;
+    --wine-bg: #3d0811;
+    --wine-bg-deep: #2a0509;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    color: var(--cream);
+    font-family: 'Inter', -apple-system, sans-serif;
+    min-height: 100vh;
+    overscroll-behavior-y: contain;
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse at top, var(--wine-bg) 0%, var(--wine-bg-deep) 70%, #1a0306 100%);
+    background-attachment: fixed;
+    padding-bottom: 40px;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.2'/%3E%3C/svg%3E");
+  }
+
+  .app {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 14px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead {
+    text-align: center;
+    padding: 22px 0 18px;
+    position: relative;
+  }
+  .invite-card {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 22px 18px 18px;
+    margin-top: 12px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    border: 2px double var(--crimson);
+  }
+  .invite-card::before, .invite-card::after {
+    content: '';
+    position: absolute;
+    left: 8px; right: 8px;
+    height: 1px;
+    background: var(--crimson);
+    opacity: 0.3;
+  }
+  .invite-card::before { top: 6px; }
+  .invite-card::after { bottom: 6px; }
+
+  .invite-preamble {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--crimson);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .invite-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--crimson);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 2px;
+  }
+  .invite-card .age-ribbon {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--crimson);
+    margin-bottom: 14px;
+  }
+  .invite-card .subheader {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--crimson);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+  }
+  .invite-horse {
+    margin: 6px auto 8px;
+    display: block;
+  }
+  .invite-details {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--crimson);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .invite-flourish {
+    font-family: 'Parisienne', cursive;
+    font-size: 14px;
+    color: var(--crimson);
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .invite-corners {
+    position: absolute;
+    width: 22px; height: 22px;
+    border: 2px solid var(--crimson);
+  }
+  .invite-corners.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+  .invite-corners.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+  .invite-corners.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+  .invite-corners.br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+  /* ===== CONNECTION STATUS ===== */
+  .connection-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--cream);
+    opacity: 0.7;
+    margin-top: 8px;
+  }
+  .connection-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 6px var(--gold);
+  }
+  .connection-dot.offline { background: #888; box-shadow: none; }
+  .connection-dot.connected { background: #9fb89d; box-shadow: 0 0 6px #9fb89d; }
+
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 999px;
+    margin: 14px 0;
+    position: sticky;
+    top: 6px;
+    z-index: 20;
+    border: 1px solid rgba(201, 169, 97, 0.25);
+  }
+  .tab {
+    flex: 1;
+    padding: 9px 4px;
+    border: none;
+    background: transparent;
+    border-radius: 999px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    opacity: 0.65;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .tab.active {
+    background: var(--cream);
+    color: var(--crimson);
+    opacity: 1;
+    box-shadow: var(--shadow);
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--cream);
+    color: var(--ink);
+    border-radius: 10px;
+    padding: 18px 16px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(139, 10, 26, 0.15);
+    position: relative;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--crimson);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title-icon {
+    color: var(--gold-deep);
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.85;
+    margin: 18px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before, .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  /* ===== INPUTS & BUTTONS ===== */
+  input[type="text"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 11px 13px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    border: 1.5px solid rgba(139, 10, 26, 0.2);
+    border-radius: 8px;
+    background: var(--cream-soft);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    border-color: var(--crimson);
+  }
+
+  button.primary {
+    padding: 12px 20px;
+    background: var(--crimson);
+    color: var(--cream);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+    text-transform: uppercase;
+  }
+  button.primary:active { transform: scale(0.97); }
+  button.primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  button.ghost {
+    padding: 10px 16px;
+    background: transparent;
+    color: var(--crimson);
+    border: 1.5px solid var(--crimson);
+    border-radius: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  button.ghost:active { transform: scale(0.97); }
+
+  .add-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .add-row input { flex: 1; }
+
+  /* ===== SIGN UP FLOW ===== */
+  .signup-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--wine-bg-deep);
+    z-index: 200;
+    overflow-y: auto;
+    padding: 20px 14px;
+  }
+  .signup-overlay .signup-inner {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .signup-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 42px;
+    color: var(--cream);
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .signup-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--cream);
+    opacity: 0.85;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .setup-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .silks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .silk-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: var(--cream-soft);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .silk-option.selected {
+    border-color: var(--crimson);
+    background: #fff;
+    box-shadow: var(--shadow);
+  }
+  .silk-swatch {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    flex-shrink: 0;
+  }
+  .silk-info { flex: 1; }
+  .silk-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .silk-gate {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 15px;
+    color: var(--crimson);
+    line-height: 1;
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .horse-name-row {
+    display: flex;
+    gap: 8px;
+  }
+  .horse-name-row input { flex: 1; }
+  .horse-generate-btn {
+    padding: 11px 14px;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .horse-generate-btn:active { transform: scale(0.97); }
+
+  .field-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 6px;
+    margin-top: 14px;
+  }
+  .field-label:first-child { margin-top: 0; }
+
+  .existing-jockey-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: var(--cream-soft);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+  }
+  .existing-jockey-row:hover, .existing-jockey-row:active {
+    border-color: var(--crimson);
+  }
+  .existing-jockey-row .silk-swatch {
+    width: 26px; height: 26px;
+  }
+  .existing-jockey-info {
+    flex: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .existing-jockey-horse {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  /* ===== RACE TRACK ===== */
+  .race-track-container {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 14px 10px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(139, 10, 26, 0.15);
+  }
+  .race-track-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 6px;
+  }
+  .race-track-header .left {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--crimson);
+  }
+  .race-track-header .right {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  .track {
+    position: relative;
+    background: linear-gradient(180deg, #c4a87c 0%, #b89968 100%);
+    border-radius: 6px;
+    padding: 4px 0;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  .track::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 8%;
+    width: 2px;
+    background: repeating-linear-gradient(180deg, #fff 0, #fff 6px, transparent 6px, transparent 12px);
+    opacity: 0.6;
+  }
+  .track::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    right: 6%;
+    width: 4px;
+    background: repeating-linear-gradient(45deg, #000 0, #000 4px, #fff 4px, #fff 8px);
+    opacity: 0.9;
+    border-radius: 2px;
+  }
+
+  .lane {
+    position: relative;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px dashed rgba(255,255,255,0.25);
+  }
+  .lane:last-child { border-bottom: none; }
+
+  .horse-runner {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: left 0.6s cubic-bezier(0.2, 0.8, 0.3, 1);
+    white-space: nowrap;
+  }
+  .horse-silk {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    flex-shrink: 0;
+  }
+  .horse-label {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--ink);
+    background: rgba(255, 245, 220, 0.85);
+    padding: 1px 5px;
+    border-radius: 3px;
+    line-height: 1.2;
+  }
+  .horse-label.self {
+    background: var(--crimson);
+    color: var(--cream);
+  }
+
+  .track-legend {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-soft);
+    padding: 6px 8px 0;
+  }
+
+  /* ===== LEADERBOARD ===== */
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .board-row {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+    border-left: 6px solid var(--crimson);
+  }
+  .board-row:active { transform: scale(0.985); }
+  .board-row.self {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, var(--cream) 0%, #f8edd4 100%);
+    box-shadow: var(--shadow-lg);
+  }
+  .board-row.leader::after {
+    content: '★';
+    position: absolute;
+    top: 6px; right: 10px;
+    color: var(--gold-deep);
+    font-size: 14px;
+  }
+  .board-rank {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--gold-deep);
+    width: 28px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .board-silk {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  /* Gate number badge — layered on silks */
+  .gate-badge {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 2px;
+  }
+  .gate-badge .gate-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--crimson);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    min-width: 20px;
+    text-align: center;
+  }
+  .gate-badge .gate-silk {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .gate-badge.sm .gate-num { font-size: 13px; }
+  .gate-badge.sm .gate-silk { width: 22px; height: 22px; }
+  .gate-badge.xs .gate-num { font-size: 11px; }
+  .gate-badge.xs .gate-silk { width: 16px; height: 16px; border-width: 1.5px; }
+  .board-main {
+    flex: 1;
+    min-width: 0;
+  }
+  .board-horse {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.15;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .board-jockey {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.2;
+  }
+  .board-furlongs {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--crimson);
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+  .board-score {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--crimson);
+    min-width: 44px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* ===== SELECTED BANNER ===== */
+  .selected-banner {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--rose) 100%);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    text-align: center;
+    border: 2px solid var(--gold);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .selected-banner .banner-silk {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    flex-shrink: 0;
+  }
+  .selected-banner .banner-text { text-align: left; }
+  .selected-banner .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .selected-banner .name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--crimson);
+    line-height: 1.1;
+  }
+  .selected-banner .horse-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  /* ===== SCORING BUTTONS ===== */
+  .btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+  .score-btn {
+    padding: 12px 10px;
+    border-radius: 9px;
+    border: 1.5px solid transparent;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.1s;
+    line-height: 1.3;
+    background: var(--cream);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    box-shadow: var(--shadow);
+    font-family: 'Inter', sans-serif;
+  }
+  .score-btn:active { transform: scale(0.96); }
+  .score-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .score-btn.bonus { background: #e8f1e5; border-color: #9fb89d; }
+  .score-btn.bonus .pts { color: #3d5c3a; }
+  .score-btn.penalty { background: #f7dfdf; border-color: var(--crimson-soft); }
+  .score-btn.penalty .pts { color: var(--crimson); }
+  .score-btn.neutral { background: #f5e8d1; border-color: var(--gold); }
+  .score-btn.neutral .pts { color: var(--gold-deep); }
+  .score-btn .pts {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .score-btn .label {
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--ink);
+  }
+  .score-btn .desc {
+    font-size: 10px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ===== BARS ===== */
+  .bar-list { display: flex; flex-direction: column; gap: 8px; }
+  .bar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--cream-soft);
+    border-radius: 8px;
+    border: 1.5px solid rgba(139, 10, 26, 0.15);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .bar-item.visited {
+    background: #e8f1e5;
+    border-color: #9fb89d;
+  }
+  .bar-check {
+    width: 22px; height: 22px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .bar-item.visited .bar-check {
+    background: #9fb89d;
+    border-color: #7a9a77;
+    color: #fff;
+  }
+  .bar-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    flex: 1;
+    color: var(--ink);
+  }
+  .bar-remove {
+    background: none; border: none;
+    color: var(--crimson); font-size: 20px;
+    cursor: pointer; padding: 0 6px;
+    opacity: 0.6;
+  }
+
+  /* ===== MINI GAMES ===== */
+  .minigame {
+    padding: 12px;
+    background: var(--cream-soft);
+    border-radius: 8px;
+    border: 1.5px solid rgba(139, 10, 26, 0.15);
+    margin-bottom: 8px;
+  }
+  .minigame h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--crimson);
+    margin-bottom: 2px;
+    font-weight: 700;
+  }
+  .minigame p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  /* ===== LOG ===== */
+  .log-entry {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    background: var(--cream-soft);
+    border-radius: 7px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    border-left: 3px solid var(--gold);
+    gap: 8px;
+  }
+  .log-entry.bonus { border-left-color: #9fb89d; }
+  .log-entry.penalty { border-left-color: var(--crimson-soft); }
+  .log-entry-silk {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    flex-shrink: 0;
+  }
+  .log-entry-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .log-entry-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .log-entry-action {
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.3;
+  }
+  .log-entry-points {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    margin-right: 6px;
+  }
+  .log-entry-points.pos { color: #3d5c3a; }
+  .log-entry-points.neg { color: var(--crimson); }
+  .log-undo {
+    background: none;
+    border: 1px solid var(--ink-soft);
+    color: var(--ink-soft);
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ===== BETS ===== */
+  .bet-form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+  .bet-item {
+    padding: 12px;
+    background: var(--cream-soft);
+    border-radius: 8px;
+    margin-bottom: 7px;
+    border-left: 3px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bet-info {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .bet-info strong { font-family: 'Playfair Display', serif; color: var(--crimson); font-weight: 700; }
+  .bet-actions { display: flex; gap: 5px; }
+  .bet-actions button {
+    flex: 1;
+    padding: 7px;
+    font-size: 11px;
+    border-radius: 6px;
+    border: 1px solid;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .bet-win { background: #e8f1e5; border-color: #9fb89d; color: #3d5c3a; }
+  .bet-lose { background: #f7dfdf; border-color: var(--crimson-soft); color: var(--crimson); }
+  .bet-cancel { background: var(--cream); border-color: var(--ink-soft); color: var(--ink-soft); }
+
+  /* ===== VICTORY MODAL ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 2, 5, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 300;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--cream);
+    color: var(--ink);
+    border-radius: 12px;
+    padding: 28px 22px 24px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    border: 3px double var(--crimson);
+    position: relative;
+    animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes popIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .modal .crown {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    color: var(--gold-deep);
+    letter-spacing: 0.3em;
+    font-style: italic;
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .modal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--crimson);
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .trophy-svg {
+    margin: 0 auto 12px;
+    display: block;
+  }
+  .modal .winner-horse {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--crimson);
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+  .modal .winner-jockey {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .modal .winner-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gold-deep);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  /* Confetti */
+  .confetti-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 250;
+    overflow: hidden;
+  }
+  .confetti-piece {
+    position: absolute;
+    width: 8px; height: 12px;
+    top: -20px;
+    animation: confetti-fall 3s linear forwards;
+  }
+  @keyframes confetti-fall {
+    to {
+      transform: translateY(110vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  /* ===== RULES LIST ===== */
+  .rules-list {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .rules-list li {
+    padding: 4px 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted rgba(139, 10, 26, 0.25);
+    gap: 10px;
+  }
+  .rules-list li span:last-child {
+    font-weight: 700;
+    color: var(--crimson);
+    font-family: 'Playfair Display', serif;
+    white-space: nowrap;
+  }
+  .rules-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold-deep);
+    font-weight: 700;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 24px 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  .meta-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .meta-bar button { flex: 1; }
+
+  .hidden { display: none !important; }
+
+  /* Small mini-action for signup */
+  .signup-footer {
+    text-align: center;
+    margin-top: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--cream);
+    opacity: 0.7;
+  }
+  .signup-footer a {
+    color: var(--gold);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  /* Tiny profile pill (logged in as) */
+  .me-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    border-radius: 999px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: var(--cream);
+    cursor: pointer;
+  }
+  .me-pill .silk-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 1px solid var(--cream);
+  }
+  .me-pill .switch { opacity: 0.6; font-style: italic; font-size: 11px; }
+
+  .top-meta {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div class="app" id="app-root">
+
+  <header class="masthead">
+    <div class="invite-card">
+      <span class="invite-corners tl"></span>
+      <span class="invite-corners tr"></span>
+      <span class="invite-corners bl"></span>
+      <span class="invite-corners br"></span>
+
+      <div class="invite-preamble">PLEASE JOIN US TO CELEBRATE</div>
+      <h1>KATHLEEN'S 30TH BIRTHDAY</h1>
+      <div class="age-ribbon"><em>est. 1996</em></div>
+      <div class="subheader">A DERBY DAY PUB CRAWL</div>
+      <svg class="invite-horse" width="42" height="24" viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 18 C 5 18, 8 14, 10 13 L 12 11 C 13 10, 14 9, 16 9 L 22 8 C 24 7, 26 6, 28 6 L 30 5 C 32 5, 34 5, 36 6 L 38 7 L 39 5 L 38 4 L 37 5 L 36 4 L 34 5 L 31 4 C 28 3, 24 3, 22 5 L 18 6 C 15 7, 12 8, 10 10 L 7 12 C 5 14, 3 16, 3 18 L 5 18 Z M 8 18 L 8 21 L 10 21 L 10 18 Z M 14 18 L 14 21 L 16 21 L 16 18 Z M 22 17 L 22 20 L 24 20 L 24 17 Z M 28 16 L 28 19 L 30 19 L 30 16 Z" fill="#8b0a1a"/>
+      </svg>
+      <div class="invite-details">SATURDAY · MAY 2 · 2:00 PM</div>
+      <div class="invite-details">TORONTO, ON</div>
+      <div class="invite-flourish">30 years young · made with love</div>
+    </div>
+    <div class="top-meta">
+      <div class="connection-status">
+        <span class="connection-dot" id="conn-dot"></span>
+        <span id="conn-label">Connecting…</span>
+        <span style="margin: 0 6px;">·</span>
+        <div class="me-pill" id="me-pill" style="display:none;">
+          <span class="silk-dot" id="me-silk"></span>
+          <span id="me-name"></span>
+          <span class="switch">switch</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="race">Race</button>
+    <button class="tab" data-tab="score">Score</button>
+    <button class="tab" data-tab="bars">Bars</button>
+    <button class="tab" data-tab="bets">Bets</button>
+    <button class="tab" data-tab="log">Log</button>
+    <button class="tab" data-tab="rules">Rules</button>
+  </nav>
+
+  <!-- ============== RACE TAB (live leaderboard + track) ============== -->
+  <section id="tab-race" class="tab-panel">
+    <div class="race-track-container" id="race-track-wrapper">
+      <div class="race-track-header">
+        <div class="left">The Furlong · Live</div>
+        <div class="right"><span id="leader-summary">awaiting the gate</span></div>
+      </div>
+      <div class="track" id="track"></div>
+      <div class="track-legend">
+        <span>Starting gate</span>
+        <span>Finish · 30 pts</span>
+      </div>
+    </div>
+
+    <div class="section-label">Leaderboard</div>
+    <div class="leaderboard" id="leaderboard"></div>
+  </section>
+
+  <!-- ============== SCORE TAB ============== -->
+  <section id="tab-score" class="tab-panel hidden">
+    <div id="selected-banner" class="hidden selected-banner"></div>
+
+    <div id="score-cart" class="hidden" style="background:var(--cream);color:var(--ink);border-radius:10px;padding:14px 16px;margin-bottom:12px;box-shadow:var(--shadow-lg);border:2px solid var(--gold);">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+        <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--crimson);font-size:15px;">Pending Score</div>
+        <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--crimson);" id="cart-total">0</div>
+      </div>
+      <div id="cart-items" style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px;"></div>
+      <div style="display:flex;gap:8px;">
+        <button class="ghost" id="cart-clear" style="flex:1;">Clear</button>
+        <button class="primary" id="cart-submit" style="flex:2;">Submit Score</button>
+      </div>
+    </div>
+
+    <div class="card" id="scoring-target-card">
+      <div class="card-title">Score a Jockey</div>
+      <p class="setup-note">Tap a racer below, then tap one or more scoring buttons. Hit <strong>Submit Score</strong> when you're ready.</p>
+      <div id="score-target-list"></div>
+    </div>
+
+    <div id="scoring-section" class="hidden">
+
+      <div class="section-label">Winner's Circle · Bonuses</div>
+      <div class="btn-grid">
+        <button class="score-btn bonus" data-pts="3" data-label="Jockey's Choice">
+          <span class="pts">+3</span>
+          <span class="label">Jockey's Choice</span>
+          <span class="desc">bartender's pick</span>
+        </button>
+        <button class="score-btn bonus" data-pts="3" data-label="Fast Break">
+          <span class="pts">+3</span>
+          <span class="label">Fast Break</span>
+          <span class="desc">double fisting</span>
+        </button>
+        <button class="score-btn bonus" data-pts="2" data-label="Lucky Horse">
+          <span class="pts">+2</span>
+          <span class="label">Lucky Horse</span>
+          <span class="desc">taking a shot</span>
+        </button>
+        <button class="score-btn bonus" data-pts="3" data-label="Perfect Form">
+          <span class="pts">+3</span>
+          <span class="label">Perfect Form</span>
+          <span class="desc">buy someone a drink</span>
+        </button>
+        <button class="score-btn bonus" data-pts="5" data-label="Crowd Favourite">
+          <span class="pts">+5</span>
+          <span class="label">Crowd Favourite</span>
+          <span class="desc">1st to spot police horse</span>
+        </button>
+        <button class="score-btn bonus" data-pts="5" data-label="Mini Game Win" data-trophy="1">
+          <span class="pts">+5</span>
+          <span class="label">Mini Game Win</span>
+          <span class="desc">one per bar · 🏆</span>
+        </button>
+        <button class="score-btn neutral" data-pts="1" data-label="Drink">
+          <span class="pts">+1</span>
+          <span class="label">Drink</span>
+          <span class="desc">each one counts</span>
+        </button>
+      </div>
+
+      <div class="section-label">Starting Line</div>
+      <div class="btn-grid">
+        <button class="score-btn bonus" data-pts="5" data-label="Fascinator" data-trophy="1">
+          <span class="pts">+5</span>
+          <span class="label">Fascinator</span>
+          <span class="desc">verified at gate · 🏆</span>
+        </button>
+        <button class="score-btn bonus" data-pts="5" data-label="Jacket" data-trophy="1">
+          <span class="pts">+5</span>
+          <span class="label">Jacket</span>
+          <span class="desc">verified at gate · 🏆</span>
+        </button>
+      </div>
+
+      <div class="section-label">Dropping the Reins · Penalties</div>
+      <div class="btn-grid">
+        <button class="score-btn penalty" data-pts="-2" data-label="Interference">
+          <span class="pts">−2</span>
+          <span class="label">Interference</span>
+          <span class="desc">spilled a drink</span>
+        </button>
+        <button class="score-btn penalty" data-pts="-1" data-label="Race Fixing">
+          <span class="pts">−1</span>
+          <span class="label">Race Fixing</span>
+          <span class="desc">didn't finish</span>
+        </button>
+        <button class="score-btn penalty" data-pts="-3" data-label="Improper Equipment">
+          <span class="pts">−3</span>
+          <span class="label">Improper Equipment</span>
+          <span class="desc">lost something</span>
+        </button>
+        <button class="score-btn penalty" data-pts="-5" data-label="Dangerous Riding">
+          <span class="pts">−5</span>
+          <span class="label">Dangerous Riding</span>
+          <span class="desc">puking</span>
+        </button>
+        <button class="score-btn penalty" data-pts="-10" data-label="Gate Violation">
+          <span class="pts">−10</span>
+          <span class="label">Gate Violation</span>
+          <span class="desc">skipped a bar</span>
+        </button>
+        <button class="score-btn penalty" data-pts="-5" data-label="Jockey Penalty">
+          <span class="pts">−5</span>
+          <span class="label">Jockey Penalty</span>
+          <span class="desc">over 5'7" · no shot</span>
+        </button>
+      </div>
+
+      <div class="section-label">Custom</div>
+      <div class="add-row">
+        <input type="number" id="custom-pts" placeholder="±5 max" min="-5" max="5" style="max-width:80px;" />
+        <input type="text" id="custom-label" placeholder="reason" />
+        <button class="primary" id="custom-apply">Add</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BARS TAB ============== -->
+  <section id="tab-bars" class="tab-panel hidden">
+    <div class="card">
+      <div class="card-title">The Post Parade</div>
+      <p class="setup-note">Tap to mark a bar as visited. Add more stops as the night unfolds.</p>
+      <div id="bar-list" class="bar-list"></div>
+      <div class="add-row" style="margin-top:12px;">
+        <input type="text" id="new-bar" placeholder="Add a bar" maxlength="40" />
+        <button class="primary" id="add-bar">Add</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Mini Games</div>
+      <p class="setup-note">Each win is worth <strong>+5 points</strong> · one per bar</p>
+      <div class="minigame">
+        <h4>① Beer Race</h4>
+        <p>Who can finish their beer first?</p>
+      </div>
+      <div class="minigame">
+        <h4>② Whose Horse Is That?</h4>
+        <p>Name the horses. Bonus points for silliness.</p>
+      </div>
+      <div class="minigame">
+        <h4>③ Pin the Tail on the Horse</h4>
+        <p>Save for last — everyone will be sufficiently impaired.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== BETS TAB ============== -->
+  <section id="tab-bets" class="tab-panel hidden">
+    <div class="card">
+      <div class="card-title">Place Your Bets</div>
+      <p class="setup-note">Wager your points against another jockey. Winner takes the pot. Wagers capped at <strong>5 points</strong>.</p>
+      <div class="bet-form">
+        <select id="bet-bettor"><option value="">Who's betting?</option></select>
+        <select id="bet-target"><option value="">Against whom?</option></select>
+        <select id="bet-type">
+          <option value="mini">Will win a mini game</option>
+          <option value="penalty">Will face a penalty next</option>
+          <option value="custom">Custom wager</option>
+        </select>
+        <input type="number" id="bet-amount" placeholder="Points to wager (max 5)" min="1" max="5" />
+        <button class="primary" id="place-bet">Lock in wager</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Open Wagers</div>
+      <div id="bet-list"></div>
+    </div>
+  </section>
+
+  <!-- ============== LOG TAB ============== -->
+  <section id="tab-log" class="tab-panel hidden">
+    <div class="card">
+      <div class="card-title">The Racing Form</div>
+      <p class="setup-note">Every scoring event · undo reverses the last action</p>
+      <div id="log-list"></div>
+    </div>
+  </section>
+
+  <!-- ============== RULES TAB ============== -->
+  <section id="tab-rules" class="tab-panel hidden">
+    <div class="card">
+      <div class="card-title">The Rulebook</div>
+      <p class="setup-note">First jockey to <strong>30 points</strong> takes the Run for the Roses.</p>
+
+      <div class="rules-heading">Starting Points</div>
+      <ul class="rules-list">
+        <li><span>Wearing a fascinator</span><span>+5</span></li>
+        <li><span>Wearing a jacket</span><span>+5</span></li>
+        <li><span>Over 5'7" jockey penalty (or sub a shot)</span><span>−5</span></li>
+        <li><span>Each drink</span><span>+1</span></li>
+      </ul>
+
+      <div class="rules-heading">Winner's Circle</div>
+      <ul class="rules-list">
+        <li><span>Jockey's Choice (bartender picks)</span><span>+3</span></li>
+        <li><span>Fast Break (double fisting)</span><span>+3</span></li>
+        <li><span>Lucky Horse (taking a shot)</span><span>+2</span></li>
+        <li><span>Perfect Form (buy someone a drink)</span><span>+3</span></li>
+        <li><span>Crowd Favourite (first police horse)</span><span>+5</span></li>
+        <li><span>Mini Game Win</span><span>+5</span></li>
+      </ul>
+
+      <div class="rules-heading">Dropping the Reins</div>
+      <ul class="rules-list">
+        <li><span>Interference (spilled drink)</span><span>−2</span></li>
+        <li><span>Race Fixing (unfinished drink)</span><span>−1</span></li>
+        <li><span>Improper Equipment (lost item)</span><span>−3</span></li>
+        <li><span>Dangerous Riding (puking)</span><span>−5</span></li>
+        <li><span>Gate Violation (skipped bar)</span><span>−10</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">My Profile</div>
+      <div id="my-profile-area"></div>
+      <div class="meta-bar" style="margin-top:14px;">
+        <button class="ghost" id="edit-profile">Edit my jockey</button>
+        <button class="ghost" id="switch-profile">Switch jockey</button>
+      </div>
+    </div>
+
+    <div class="card" id="stewards-card">
+      <div class="card-title">
+        The Stewards' Room
+        <span id="steward-badge" class="hidden" style="margin-left:auto;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;background:var(--crimson);color:var(--cream);padding:2px 8px;border-radius:999px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;">Signed in</span>
+      </div>
+
+      <div id="steward-login-area">
+        <p class="setup-note">Stewards can reverse log entries, void bets, and reset scores. Sign in with the Steward code to unlock these powers.</p>
+        <div class="add-row">
+          <input type="password" id="steward-password" placeholder="Steward code" autocomplete="off" />
+          <button class="primary" id="steward-login-btn">Sign in</button>
+        </div>
+        <div id="steward-login-err" style="display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--crimson);margin-top:6px;">Incorrect code.</div>
+      </div>
+
+      <div id="steward-actions-area" class="hidden">
+        <p class="setup-note">You're in the Stewards' Room. Undo, void, and reset are now available to you across the app.</p>
+        <div style="margin:14px 0;padding:14px;background:linear-gradient(135deg,#f5ecd7,#e8b4b8);border-radius:10px;border:2px solid var(--gold);">
+          <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--crimson);font-size:15px;margin-bottom:4px;">🏆 End the Night</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-soft);margin-bottom:10px;line-height:1.4;">When the crawl winds down, tap this to reveal the closing ceremony — all 6 awards presented to every phone at once.</div>
+          <div style="display:flex;gap:6px;">
+            <button class="primary" id="start-awards-btn" style="flex:2;">End the Night · Reveal Awards</button>
+            <button class="ghost" id="stop-awards-btn" style="flex:1;font-size:11px;" title="Cancel an active ceremony">Cancel</button>
+          </div>
+        </div>
+        <div class="meta-bar">
+          <button class="ghost" id="reset-scores">Reset all scores</button>
+          <button class="ghost" id="steward-logout-btn" style="border-color:var(--ink-soft);color:var(--ink-soft);">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============== STEWARD PASSWORD PROMPT MODAL ============== -->
+<div id="steward-prompt-modal" class="modal-overlay hidden">
+  <div class="modal" style="max-width:340px;padding:22px 20px;">
+    <div class="crown">✦ STEWARDS' ROOM ✦</div>
+    <h2 style="font-size:18px;margin-bottom:8px;">Sign in required</h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--ink-soft);margin-bottom:14px;">This action requires Steward sign-in.</p>
+    <button class="primary" id="goto-stewards-btn" style="width:100%;margin-bottom:8px;">Go to the Stewards' Room</button>
+    <button class="ghost" onclick="document.getElementById('steward-prompt-modal').classList.add('hidden');" style="width:100%;">Cancel</button>
+  </div>
+</div>
+
+<!-- ============== SIGN UP OVERLAY ============== -->
+<div id="signup-overlay" class="signup-overlay hidden">
+  <div class="signup-inner">
+    <div class="signup-title">To the Post</div>
+    <div class="signup-subtitle">Claim your jockey — or rejoin as one</div>
+
+    <div class="card" id="rejoin-card" style="display:none;">
+      <div class="card-title">Rejoin as…</div>
+      <p class="setup-note">Already claimed? Tap your jockey to resume on this phone.</p>
+      <div id="rejoin-list"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" id="signup-card-title">Claim Your Jockey</div>
+
+      <div class="field-label">Jockey Name</div>
+      <input type="text" id="jockey-name-input" placeholder="Your name or nickname" maxlength="30" />
+
+      <div class="field-label">Horse Name</div>
+      <div class="horse-name-row">
+        <input type="text" id="horse-name-input" placeholder="Your racing name" maxlength="32" />
+        <button class="horse-generate-btn" id="generate-horse-btn">🎲 Ideas</button>
+      </div>
+
+      <div class="field-label">Silks</div>
+      <div class="silks-grid" id="silks-grid"></div>
+
+      <div class="meta-bar" style="margin-top:18px;">
+        <button class="primary" id="claim-jockey-btn" style="flex:1;">Take the Gate</button>
+      </div>
+    </div>
+
+    <div class="signup-footer" id="signup-footer"></div>
+  </div>
+</div>
+
+<!-- ============== VICTORY MODAL ============== -->
+<div id="victory-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="crown">✦ · RUN FOR THE ROSES · ✦</div>
+    <svg class="trophy-svg" width="80" height="90" viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="tGold" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#e4c878"/>
+          <stop offset="50%" stop-color="#c9a961"/>
+          <stop offset="100%" stop-color="#a8873f"/>
+        </linearGradient>
+      </defs>
+      <path d="M 20 10 L 60 10 L 58 40 Q 58 55 40 55 Q 22 55 22 40 Z" fill="url(#tGold)" stroke="#6b3d0f" stroke-width="1.5"/>
+      <path d="M 20 15 Q 10 15 10 25 Q 10 35 20 35" fill="none" stroke="url(#tGold)" stroke-width="3"/>
+      <path d="M 60 15 Q 70 15 70 25 Q 70 35 60 35" fill="none" stroke="url(#tGold)" stroke-width="3"/>
+      <path d="M 30 25 L 32 22 L 33 25 L 35 24 L 37 27 L 42 27 L 45 28 L 48 32 L 48 38 L 46 38 L 46 34 L 44 34 L 44 38 L 42 38 L 42 34 L 35 34 L 35 38 L 33 38 L 33 34 L 31 34 L 30 30 Z" fill="#6b0714"/>
+      <rect x="36" y="55" width="8" height="10" fill="url(#tGold)" stroke="#6b3d0f" stroke-width="1"/>
+      <rect x="26" y="65" width="28" height="6" fill="url(#tGold)" stroke="#6b3d0f" stroke-width="1" rx="1"/>
+      <rect x="22" y="71" width="36" height="8" fill="url(#tGold)" stroke="#6b3d0f" stroke-width="1" rx="1"/>
+      <path d="M 18 80 L 28 82 L 24 88 Z" fill="#8b0a1a"/>
+      <path d="M 62 80 L 52 82 L 56 88 Z" fill="#8b0a1a"/>
+    </svg>
+    <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--crimson);font-weight:700;margin-bottom:4px;">First Across the Wire</div>
+    <div class="winner-horse" id="winner-horse"></div>
+    <div class="winner-jockey" id="winner-jockey"></div>
+    <div class="winner-score" id="winner-score"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-soft);margin-bottom:14px;line-height:1.4;">The race continues — more awards will be given at the end of the night.</div>
+    <button class="primary" id="close-victory">Continue the revelry</button>
+  </div>
+</div>
+
+<!-- ============== AWARDS CEREMONY MODAL ============== -->
+<div id="awards-modal" class="modal-overlay hidden">
+  <div class="modal" id="awards-modal-body" style="max-width:400px;"></div>
+</div>
+
+<!-- ============== MINI TROPHY MODAL (for achievements) ============== -->
+<div id="mini-trophy-modal" class="modal-overlay hidden">
+  <div class="modal" style="max-width:320px;padding:22px 18px;">
+    <svg class="trophy-svg" width="60" height="70" viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg">
+      <use href="#trophy-reuse"/>
+      <defs>
+        <linearGradient id="mtGold" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#e4c878"/>
+          <stop offset="50%" stop-color="#c9a961"/>
+          <stop offset="100%" stop-color="#a8873f"/>
+        </linearGradient>
+      </defs>
+      <path d="M 20 10 L 60 10 L 58 40 Q 58 55 40 55 Q 22 55 22 40 Z" fill="url(#mtGold)" stroke="#6b3d0f" stroke-width="1.5"/>
+      <path d="M 20 15 Q 10 15 10 25 Q 10 35 20 35" fill="none" stroke="url(#mtGold)" stroke-width="3"/>
+      <path d="M 60 15 Q 70 15 70 25 Q 70 35 60 35" fill="none" stroke="url(#mtGold)" stroke-width="3"/>
+      <rect x="36" y="55" width="8" height="10" fill="url(#mtGold)"/>
+      <rect x="26" y="65" width="28" height="6" fill="url(#mtGold)" rx="1"/>
+      <rect x="22" y="71" width="36" height="8" fill="url(#mtGold)" rx="1"/>
+    </svg>
+    <div class="crown" style="margin-top:8px;">✦ ACHIEVEMENT ✦</div>
+    <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--crimson);font-weight:700;margin-bottom:4px;" id="mini-trophy-label"></div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--ink-soft);margin-bottom:16px;" id="mini-trophy-horse"></div>
+    <button class="primary" onclick="document.getElementById('mini-trophy-modal').classList.add('hidden')">Huzzah!</button>
+  </div>
+</div>
+
+<!-- Tab wiring — runs immediately, does not depend on Firebase loading -->
+<script>
+(function(){
+  function wireTabs() {
+    document.querySelectorAll('.tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var tab = btn.dataset.tab;
+        document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.add('hidden'); });
+        var panel = document.getElementById('tab-' + tab);
+        if (panel) panel.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wireTabs);
+  } else {
+    wireTabs();
+  }
+})();
+</script>
+
+<!-- Firebase + App logic -->
+<script type="module">
+// Dynamically import Firebase so a load failure doesn't kill the whole script
+let initializeApp, getDatabase, ref, onValue, set, update, remove, push, onDisconnect, serverTimestamp, goOnline, goOffline;
+let firebaseLoaded = false;
+try {
+  const appMod = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+  const dbMod  = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js");
+  initializeApp = appMod.initializeApp;
+  ({ getDatabase, ref, onValue, set, update, remove, push, onDisconnect, serverTimestamp, goOnline, goOffline } = dbMod);
+  firebaseLoaded = true;
+} catch (e) {
+  console.error('Firebase SDK failed to load. App will run in offline/UI-only mode.', e);
+}
+
+// ===== FIREBASE CONFIG =====
+const firebaseConfig = {
+  apiKey: "AIzaSyDK8QmilvQWD-6eys_mDVVV0wzMNz3o1k0",
+  authDomain: "kathleen-s-birthday.firebaseapp.com",
+  databaseURL: "https://kathleen-s-birthday-default-rtdb.firebaseio.com",
+  projectId: "kathleen-s-birthday",
+  storageBucket: "kathleen-s-birthday.firebasestorage.app",
+  messagingSenderId: "258741988442",
+  appId: "1:258741988442:web:ed6e3f1d2fa3e1cdb87c63",
+  measurementId: "G-JNN75S437R"
+};
+
+// Event ID — all data is namespaced under this
+const EVENT_ID = 'kathleen_30_may2_2026';
+const WIN_SCORE = 30;
+
+let app = null;
+let db = null;
+let firebaseReady = false;
+if (firebaseLoaded) {
+  try {
+    app = initializeApp(firebaseConfig);
+    db = getDatabase(app);
+    firebaseReady = true;
+  } catch (e) {
+    console.error('Firebase init failed:', e);
+  }
+}
+
+// ===== SILKS =====
+const SILKS = [
+  { id: 'silk_01', gate: 1,  name: 'Crimson & Cream',    c1: '#8b0a1a', c2: '#f5ecd7' },
+  { id: 'silk_02', gate: 2,  name: 'Gold & Crimson',     c1: '#c9a961', c2: '#8b0a1a' },
+  { id: 'silk_03', gate: 3,  name: 'Rose & Ivory',       c1: '#e8b4b8', c2: '#faf6ec' },
+  { id: 'silk_04', gate: 4,  name: 'Hunter & Gold',      c1: '#2e4a3a', c2: '#c9a961' },
+  { id: 'silk_05', gate: 5,  name: 'Navy & Ivory',       c1: '#1e3a5f', c2: '#faf6ec' },
+  { id: 'silk_06', gate: 6,  name: 'Burgundy & Rose',    c1: '#6b2737', c2: '#e8b4b8' },
+  { id: 'silk_07', gate: 7,  name: 'Gold & Black',       c1: '#c9a961', c2: '#2d2420' },
+  { id: 'silk_08', gate: 8,  name: 'Crimson & Navy',     c1: '#8b0a1a', c2: '#1e3a5f' },
+  { id: 'silk_09', gate: 9,  name: 'Emerald & Ivory',    c1: '#2e4a3a', c2: '#faf6ec' },
+  { id: 'silk_10', gate: 10, name: 'Gold & Ivory',       c1: '#c9a961', c2: '#faf6ec' },
+  { id: 'silk_11', gate: 11, name: 'Royal & Gold',       c1: '#3a2a7a', c2: '#c9a961' },
+  { id: 'silk_12', gate: 12, name: 'Turquoise & Cream',  c1: '#2a8a8f', c2: '#f5ecd7' },
+  { id: 'silk_13', gate: 13, name: 'Orange & Navy',      c1: '#d2691e', c2: '#1e3a5f' },
+  { id: 'silk_14', gate: 14, name: 'Lavender & Plum',    c1: '#b8a5d1', c2: '#5d3a6b' },
+  { id: 'silk_15', gate: 15, name: 'Forest & Rose',      c1: '#1e3a2a', c2: '#e8b4b8' },
+  { id: 'silk_16', gate: 16, name: 'Bluegrass & Gold',   c1: '#5a8fc4', c2: '#c9a961' },
+  { id: 'silk_17', gate: 17, name: 'Cherry & Ivory',     c1: '#b83a4b', c2: '#faf6ec' },
+  { id: 'silk_18', gate: 18, name: 'Chocolate & Cream',  c1: '#5a3a1a', c2: '#f5ecd7' },
+  { id: 'silk_19', gate: 19, name: 'Mint & Burgundy',    c1: '#a8d4bf', c2: '#6b2737' },
+  { id: 'silk_20', gate: 20, name: 'Black & Rose',       c1: '#1a0a0d', c2: '#e8b4b8' },
+];
+
+function silkById(id) { return SILKS.find(s => s.id === id) || SILKS[0]; }
+function silkGradient(silk) {
+  return `linear-gradient(135deg, ${silk.c1} 50%, ${silk.c2} 50%)`;
+}
+function gateNumForJockey(j) {
+  const silk = silkById(j?.silkId);
+  return silk?.gate || '?';
+}
+
+// ===== HORSE NAME GENERATOR =====
+const HORSE_ADJECTIVES = ['Silly', 'Galloping', 'Thirsty', 'Lightning', 'Midnight', 'Dashing',
+  'Noble', 'Wild', 'Dapper', 'Prancing', 'Rowdy', 'Gilded', 'Cheeky', 'Lucky', 'Royal',
+  'Bold', 'Spicy', 'Merry', 'Fancy', 'Rebel', 'Velvet'];
+const HORSE_NOUNS = ['Stallion', 'Thunder', 'Gambit', 'Bourbon', 'Clover', 'Wager',
+  'Dynasty', 'Mirage', 'Whisper', 'Derby', 'Julep', 'Rose', 'Triumph', 'Fortune',
+  'Glory', 'Rumour', 'Pony Express', 'Maverick', 'Heartbreak', 'Charm'];
+const HORSE_PUNS = [
+  'Neigh Sayer', 'Hoof Hearted', 'Sir Gallops-a-Lot', 'Mane Attraction',
+  'Hay Girl Hey', 'Foal Me Twice', 'Bridle-ing Gossip', 'A Furlong Way',
+  'Trot So Fast', 'Giddy Up Buttercup', 'Filly Navidad', 'Horsin\' Around',
+  'Saddle Up, Sally', 'Colt 45', 'Yeehaw Mama', 'Tequila Mockingbird',
+  'Whiskey Tango Foxtrot', 'Rye & Dandy', 'Thoroughly Bred', 'Bit of Alright'
+];
+function generateHorseName() {
+  if (Math.random() < 0.35) {
+    return HORSE_PUNS[Math.floor(Math.random() * HORSE_PUNS.length)];
+  }
+  const a = HORSE_ADJECTIVES[Math.floor(Math.random() * HORSE_ADJECTIVES.length)];
+  const n = HORSE_NOUNS[Math.floor(Math.random() * HORSE_NOUNS.length)];
+  return `${a} ${n}`;
+}
+
+// ===== LOCAL STATE =====
+const DEVICE_KEY = 'derby_kathleen_30_device';
+const STEWARD_KEY = 'derby_kathleen_30_steward';
+const STEWARD_PASSWORD = 'derby2026';  // Change this one line to update the Steward code
+let myJockeyId = localStorage.getItem(DEVICE_KEY) || null;
+let selectedSilkId = SILKS[0].id;
+let isSteward = localStorage.getItem(STEWARD_KEY) === '1';
+
+// Live state mirrors the Firebase tree
+let liveState = {
+  jockeys: {},     // id -> { id, jockeyName, horseName, silkId, score, createdAt }
+  bars:    {},     // id -> { id, name, visited, order }
+  log:     {},     // id -> { id, byId, byName, targetId, targetName, targetSilkId, label, pts, ts, barName, barId }
+  bets:    {},     // id -> { id, bettorId, bettorName, targetId, targetName, type, amount, status }
+  winnerAck: {},   // { jockeyId, jockeyName, horseName, silkId, scoreAtWire, acknowledged, ts }
+  halftimeSnapshot: null, // { taken, ts, barsVisited, totalBars, scores }
+  awardsCeremony: null    // { active, startedAt, awards: [...], dismissed: {jockeyId: true} }
+};
+let connected = false;
+let selectedTargetId = null;
+
+// ===== HELPERS =====
+function uid() { return 'j' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+// ===== STEWARD GATE =====
+function requireSteward() {
+  if (isSteward) return true;
+  document.getElementById('steward-prompt-modal').classList.remove('hidden');
+  return false;
+}
+function renderStewardUI() {
+  const login = document.getElementById('steward-login-area');
+  const actions = document.getElementById('steward-actions-area');
+  const badge = document.getElementById('steward-badge');
+  if (isSteward) {
+    login.classList.add('hidden');
+    actions.classList.remove('hidden');
+    badge.classList.remove('hidden');
+  } else {
+    login.classList.remove('hidden');
+    actions.classList.add('hidden');
+    badge.classList.add('hidden');
+  }
+}
+function stewardLogin(password) {
+  if (password === STEWARD_PASSWORD) {
+    isSteward = true;
+    localStorage.setItem(STEWARD_KEY, '1');
+    renderStewardUI();
+    return true;
+  }
+  return false;
+}
+function stewardLogout() {
+  isSteward = false;
+  localStorage.removeItem(STEWARD_KEY);
+  renderStewardUI();
+}
+function timeAgo(ts) {
+  if (!ts) return '';
+  const s = Math.floor((Date.now() - ts) / 1000);
+  if (s < 60) return 'just now';
+  if (s < 3600) return `${Math.floor(s / 60)}m ago`;
+  if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
+  return `${Math.floor(s / 86400)}d ago`;
+}
+function jockeyList() {
+  return Object.values(liveState.jockeys || {}).sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+}
+function jockeySorted() {
+  return Object.values(liveState.jockeys || {}).sort((a, b) => (b.score || 0) - (a.score || 0) || (a.createdAt || 0) - (b.createdAt || 0));
+}
+function me() { return liveState.jockeys?.[myJockeyId] || null; }
+function furlongsBehind(score, leaderScore) {
+  if (leaderScore <= 0 || score >= leaderScore) return '';
+  const diff = leaderScore - score;
+  return `${diff} furlong${diff === 1 ? '' : 's'} behind`;
+}
+function furlongsAhead(score, nextScore) {
+  if (score <= 0) return 'still at the gate';
+  if (!nextScore && nextScore !== 0) return '';
+  const diff = score - nextScore;
+  if (diff <= 0) return '';
+  return `${diff} furlong${diff === 1 ? '' : 's'} ahead`;
+}
+
+// ===== FIREBASE WIRING =====
+const eventRef = firebaseReady ? ref(db, `events/${EVENT_ID}`) : null;
+
+// Listen for everything under the event
+if (firebaseReady) {
+  onValue(eventRef, (snap) => {
+    const data = snap.val() || {};
+    liveState = {
+      jockeys: data.jockeys || {},
+      bars: data.bars || {},
+      log: data.log || {},
+      bets: data.bets || {},
+      winnerAck: data.winnerAck || {},
+      halftimeSnapshot: data.halftimeSnapshot || null,
+      awardsCeremony: data.awardsCeremony || null
+    };
+    setConnected(true);
+    // Seed default bars if empty (only once, first time)
+    if (Object.keys(liveState.bars).length === 0) {
+      seedDefaultBars();
+    }
+    renderAll();
+    checkWinner();
+  }, (err) => {
+    console.error('Firebase listener error:', err);
+    setConnected(false);
+  });
+} else {
+  setConnected(false);
+}
+
+function setConnected(v) {
+  connected = v;
+  const dot = document.getElementById('conn-dot');
+  const label = document.getElementById('conn-label');
+  if (v) {
+    dot.classList.remove('offline');
+    dot.classList.add('connected');
+    label.textContent = 'Live · synced';
+  } else {
+    dot.classList.remove('connected');
+    dot.classList.add('offline');
+    label.textContent = 'Offline';
+  }
+}
+
+// connection status
+if (firebaseReady) {
+  const connRef = ref(db, '.info/connected');
+  onValue(connRef, (snap) => setConnected(!!snap.val()));
+}
+
+async function seedDefaultBars() {
+  if (!firebaseReady) return;
+  const defaults = [
+    { name: "Chamberlain's Pony Bar", order: 1 },
+    { name: "Rockin' Horse", order: 2 },
+    { name: "Locals Only", order: 3 }
+  ];
+  const updates = {};
+  defaults.forEach((b, i) => {
+    const id = 'bar_' + i;
+    updates[`events/${EVENT_ID}/bars/${id}`] = { id, name: b.name, visited: false, order: b.order };
+  });
+  try { await update(ref(db), updates); } catch (e) { console.warn(e); }
+}
+
+// ===== SIGN UP FLOW =====
+function renderSilksGrid() {
+  const grid = document.getElementById('silks-grid');
+  const used = new Set(Object.values(liveState.jockeys || {})
+    .filter(j => j.id !== myJockeyId)
+    .map(j => j.silkId));
+  grid.innerHTML = '';
+  SILKS.forEach(silk => {
+    const el = document.createElement('div');
+    const isSelected = silk.id === selectedSilkId;
+    const isUsed = used.has(silk.id);
+    el.className = 'silk-option' + (isSelected ? ' selected' : '');
+    el.style.opacity = isUsed ? '0.35' : '1';
+    el.style.pointerEvents = isUsed ? 'none' : 'auto';
+    el.innerHTML = `
+      <div class="silk-swatch" style="background:${silkGradient(silk)};"></div>
+      <div class="silk-info">
+        <div class="silk-name">${escapeHtml(silk.name)}${isUsed ? ' <span style="color:var(--crimson);font-size:9px;font-weight:400;">(taken)</span>' : ''}</div>
+        <div class="silk-gate">GATE ${silk.gate}</div>
+      </div>
+    `;
+    el.addEventListener('click', () => {
+      selectedSilkId = silk.id;
+      renderSilksGrid();
+    });
+    grid.appendChild(el);
+  });
+}
+
+function renderRejoinList() {
+  const list = document.getElementById('rejoin-list');
+  const card = document.getElementById('rejoin-card');
+  const jockeys = jockeyList();
+  if (jockeys.length === 0) {
+    card.style.display = 'none';
+    return;
+  }
+  card.style.display = 'block';
+  list.innerHTML = '';
+  jockeys.forEach(j => {
+    const silk = silkById(j.silkId);
+    const row = document.createElement('div');
+    row.className = 'existing-jockey-row';
+    row.innerHTML = `
+      <div class="gate-badge sm">
+        <div class="gate-num">${silk.gate}</div>
+        <div class="gate-silk" style="background:${silkGradient(silk)};"></div>
+      </div>
+      <div class="existing-jockey-info">
+        <div>${escapeHtml(j.jockeyName)}</div>
+        <div class="existing-jockey-horse">riding ${escapeHtml(j.horseName)}</div>
+      </div>
+      <div style="font-family:'Playfair Display',serif;color:var(--crimson);font-weight:700;">${j.score || 0} pts</div>
+    `;
+    row.addEventListener('click', () => {
+      myJockeyId = j.id;
+      localStorage.setItem(DEVICE_KEY, myJockeyId);
+      hideSignup();
+      renderAll();
+    });
+    list.appendChild(row);
+  });
+}
+
+function showSignup(editMode = false) {
+  const overlay = document.getElementById('signup-overlay');
+  overlay.classList.remove('hidden');
+
+  if (editMode && me()) {
+    const mine = me();
+    document.getElementById('jockey-name-input').value = mine.jockeyName || '';
+    document.getElementById('horse-name-input').value = mine.horseName || '';
+    selectedSilkId = mine.silkId || SILKS[0].id;
+    document.getElementById('signup-card-title').textContent = 'Edit Your Jockey';
+    document.getElementById('claim-jockey-btn').textContent = 'Save Changes';
+    document.getElementById('rejoin-card').style.display = 'none';
+    document.getElementById('signup-footer').innerHTML = `<a id="cancel-edit">Cancel</a>`;
+    document.getElementById('cancel-edit').addEventListener('click', hideSignup);
+  } else {
+    document.getElementById('jockey-name-input').value = '';
+    document.getElementById('horse-name-input').value = '';
+    selectedSilkId = findFirstAvailableSilk();
+    document.getElementById('signup-card-title').textContent = 'Claim Your Jockey';
+    document.getElementById('claim-jockey-btn').textContent = 'Take the Gate';
+    renderRejoinList();
+    document.getElementById('signup-footer').innerHTML = '';
+  }
+  renderSilksGrid();
+}
+
+function findFirstAvailableSilk() {
+  const used = new Set(Object.values(liveState.jockeys || {})
+    .filter(j => j.id !== myJockeyId).map(j => j.silkId));
+  const avail = SILKS.find(s => !used.has(s.id));
+  return (avail || SILKS[0]).id;
+}
+
+function hideSignup() {
+  document.getElementById('signup-overlay').classList.add('hidden');
+}
+
+document.getElementById('generate-horse-btn').addEventListener('click', () => {
+  document.getElementById('horse-name-input').value = generateHorseName();
+});
+
+document.getElementById('claim-jockey-btn').addEventListener('click', async () => {
+  const jockeyName = document.getElementById('jockey-name-input').value.trim();
+  const horseName = document.getElementById('horse-name-input').value.trim();
+  if (!jockeyName) { alert('Jockey name is required.'); return; }
+  if (!horseName) { alert('Horse name is required. Tap 🎲 Ideas for inspiration!'); return; }
+
+  const existingMine = me();
+  if (existingMine) {
+    // Edit mode
+    try {
+      await update(ref(db, `events/${EVENT_ID}/jockeys/${existingMine.id}`), {
+        jockeyName, horseName, silkId: selectedSilkId
+      });
+      hideSignup();
+    } catch (e) { alert('Could not save: ' + e.message); }
+  } else {
+    // New jockey
+    const id = uid();
+    const newJ = {
+      id, jockeyName, horseName,
+      silkId: selectedSilkId,
+      score: 0,
+      createdAt: Date.now()
+    };
+    try {
+      await set(ref(db, `events/${EVENT_ID}/jockeys/${id}`), newJ);
+      myJockeyId = id;
+      localStorage.setItem(DEVICE_KEY, id);
+      hideSignup();
+    } catch (e) { alert('Could not claim jockey: ' + e.message); }
+  }
+});
+
+// ===== TABS =====
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+    document.getElementById('tab-' + tab).classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ===== RACE TRACK =====
+function renderRaceTrack() {
+  const track = document.getElementById('track');
+  const jockeys = jockeySorted();
+  if (jockeys.length === 0) {
+    track.innerHTML = '<div style="padding:20px;text-align:center;font-family:\'Cormorant Garamond\',serif;font-style:italic;color:var(--ink-soft);font-size:13px;">Waiting for jockeys at the gate…</div>';
+    document.getElementById('leader-summary').textContent = 'awaiting the gate';
+    return;
+  }
+  const leader = jockeys[0];
+  const leaderSilk = silkById(leader.silkId);
+  document.getElementById('leader-summary').textContent = leader.score > 0
+    ? `#${leaderSilk.gate} · ${leader.horseName} · ${leader.score} pts`
+    : 'awaiting first points';
+
+  track.innerHTML = '';
+  jockeys.forEach(j => {
+    const silk = silkById(j.silkId);
+    const lane = document.createElement('div');
+    lane.className = 'lane';
+    // Position: 0 pts -> 6%, 30 pts -> 92%
+    const pct = Math.max(0, Math.min(1, (j.score || 0) / WIN_SCORE));
+    const leftPct = 6 + pct * 86;
+    const isMe = j.id === myJockeyId;
+    lane.innerHTML = `
+      <div class="horse-runner" style="left:${leftPct}%;">
+        <div class="horse-silk" style="background:${silkGradient(silk)};"></div>
+        <div class="horse-label ${isMe ? 'self' : ''}"><strong style="margin-right:3px;">${silk.gate}</strong>${escapeHtml(j.horseName)}</div>
+      </div>
+    `;
+    track.appendChild(lane);
+  });
+}
+
+function renderLeaderboard() {
+  const board = document.getElementById('leaderboard');
+  const jockeys = jockeySorted();
+  if (jockeys.length === 0) {
+    board.innerHTML = '<div class="empty-state">No jockeys have claimed the gate yet.</div>';
+    return;
+  }
+  const leaderScore = jockeys[0]?.score || 0;
+  board.innerHTML = '';
+  jockeys.forEach((j, i) => {
+    const silk = silkById(j.silkId);
+    const row = document.createElement('div');
+    row.className = 'board-row';
+    if (j.id === myJockeyId) row.classList.add('self');
+    if (j.score === leaderScore && j.score > 0) row.classList.add('leader');
+    row.style.borderLeftColor = silk.c1;
+
+    let furlongLine = '';
+    if (i === 0 && j.score > 0) {
+      const next = jockeys[1];
+      const ahead = next ? furlongsAhead(j.score, next.score || 0) : '';
+      furlongLine = ahead || 'leading the pack';
+    } else if (j.score >= WIN_SCORE) {
+      furlongLine = 'across the wire · winner';
+    } else {
+      const fb = furlongsBehind(j.score || 0, leaderScore);
+      furlongLine = fb || '';
+    }
+
+    row.innerHTML = `
+      <div class="board-rank">${i + 1}</div>
+      <div class="gate-badge">
+        <div class="gate-num">${silk.gate}</div>
+        <div class="gate-silk" style="background:${silkGradient(silk)};"></div>
+      </div>
+      <div class="board-main">
+        <div class="board-horse">${escapeHtml(j.horseName)}</div>
+        <div class="board-jockey">ridden by ${escapeHtml(j.jockeyName)}</div>
+        ${furlongLine ? `<div class="board-furlongs">${escapeHtml(furlongLine)}</div>` : ''}
+      </div>
+      <div class="board-score">${j.score || 0}</div>
+    `;
+    row.addEventListener('click', () => {
+      if (selectedTargetId !== j.id && scoreCart.length > 0) {
+        if (!confirm('Switch jockey? Your pending score will be cleared.')) return;
+        scoreCart = [];
+      }
+      selectedTargetId = j.id;
+      // Switch to score tab
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      document.querySelector('[data-tab="score"]').classList.add('active');
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('tab-score').classList.remove('hidden');
+      renderScoreTargets();
+      renderCart();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    board.appendChild(row);
+  });
+}
+
+// ===== SCORE TARGETS =====
+function renderScoreTargets() {
+  const list = document.getElementById('score-target-list');
+  const jockeys = jockeySorted();
+  list.innerHTML = '';
+
+  if (jockeys.length === 0) {
+    list.innerHTML = '<div class="empty-state">No jockeys yet.</div>';
+    document.getElementById('scoring-section').classList.add('hidden');
+    document.getElementById('selected-banner').classList.add('hidden');
+    return;
+  }
+
+  // Quick "score myself" button first if I have a profile
+  if (me()) {
+    const mineBtn = document.createElement('div');
+    mineBtn.className = 'existing-jockey-row';
+    const silk = silkById(me().silkId);
+    const isSel = selectedTargetId === myJockeyId;
+    if (isSel) mineBtn.style.borderColor = 'var(--crimson)';
+    mineBtn.style.borderStyle = 'solid';
+    mineBtn.style.background = isSel ? '#fff' : 'var(--cream-soft)';
+    mineBtn.innerHTML = `
+      <div class="gate-badge sm">
+        <div class="gate-num">${silk.gate}</div>
+        <div class="gate-silk" style="background:${silkGradient(silk)};"></div>
+      </div>
+      <div class="existing-jockey-info">
+        <div><strong>Me</strong> · ${escapeHtml(me().jockeyName)}</div>
+        <div class="existing-jockey-horse">${escapeHtml(me().horseName)} · ${me().score || 0} pts</div>
+      </div>
+    `;
+    mineBtn.addEventListener('click', () => {
+      if (selectedTargetId !== myJockeyId && scoreCart.length > 0) {
+        if (!confirm('Switch jockey? Your pending score will be cleared.')) return;
+        scoreCart = [];
+      }
+      selectedTargetId = myJockeyId;
+      renderScoreTargets();
+      renderCart();
+    });
+    list.appendChild(mineBtn);
+
+    // divider
+    const div = document.createElement('div');
+    div.style.cssText = 'height:1px;background:rgba(139,10,26,0.15);margin:8px 0;';
+    list.appendChild(div);
+  }
+
+  // Sort others by gate number for easy lookup ("Horse 8!")
+  const others = jockeys
+    .filter(j => j.id !== myJockeyId)
+    .slice()
+    .sort((a, b) => (silkById(a.silkId).gate || 99) - (silkById(b.silkId).gate || 99));
+
+  others.forEach(j => {
+    const silk = silkById(j.silkId);
+    const row = document.createElement('div');
+    row.className = 'existing-jockey-row';
+    const isSel = selectedTargetId === j.id;
+    if (isSel) row.style.borderColor = 'var(--crimson)';
+    row.style.borderStyle = 'solid';
+    row.style.background = isSel ? '#fff' : 'var(--cream-soft)';
+    row.innerHTML = `
+      <div class="gate-badge sm">
+        <div class="gate-num">${silk.gate}</div>
+        <div class="gate-silk" style="background:${silkGradient(silk)};"></div>
+      </div>
+      <div class="existing-jockey-info">
+        <div>${escapeHtml(j.jockeyName)}</div>
+        <div class="existing-jockey-horse">${escapeHtml(j.horseName)} · ${j.score || 0} pts</div>
+      </div>
+    `;
+    row.addEventListener('click', () => {
+      if (selectedTargetId !== j.id && scoreCart.length > 0) {
+        if (!confirm('Switch jockey? Your pending score will be cleared.')) return;
+        scoreCart = [];
+      }
+      selectedTargetId = j.id;
+      renderScoreTargets();
+      renderCart();
+    });
+    list.appendChild(row);
+  });
+
+  renderSelectedBanner();
+}
+
+function renderSelectedBanner() {
+  const banner = document.getElementById('selected-banner');
+  const section = document.getElementById('scoring-section');
+  const target = liveState.jockeys?.[selectedTargetId];
+  if (target) {
+    const silk = silkById(target.silkId);
+    banner.classList.remove('hidden');
+    banner.innerHTML = `
+      <div class="banner-silk" style="background:${silkGradient(silk)};"></div>
+      <div class="banner-text">
+        <div class="label">Scoring for Gate ${silk.gate}</div>
+        <div class="name">${escapeHtml(target.jockeyName)}</div>
+        <div class="horse-sub">riding ${escapeHtml(target.horseName)}</div>
+      </div>
+    `;
+    section.classList.remove('hidden');
+  } else {
+    banner.classList.add('hidden');
+    section.classList.add('hidden');
+  }
+}
+
+// Returns the current bar the crawl is at — defined as the last "visited" bar by order
+function currentBarName() {
+  const bars = Object.values(liveState.bars || {})
+    .filter(b => b.visited)
+    .sort((a, b) => (b.order || 0) - (a.order || 0));
+  return bars[0]?.name || 'Pre-crawl';
+}
+function currentBarId() {
+  const bars = Object.values(liveState.bars || {})
+    .filter(b => b.visited)
+    .sort((a, b) => (b.order || 0) - (a.order || 0));
+  return bars[0]?.id || 'pre_crawl';
+}
+
+// Snapshot scores at halftime (when 50%+ of bars have been visited).
+// Called after any bar visit toggle. Only writes if not already snapshotted.
+async function maybeSnapshotHalftime() {
+  if (!firebaseReady) return;
+  if (liveState.halftimeSnapshot && liveState.halftimeSnapshot.taken) return;
+  const bars = Object.values(liveState.bars || {});
+  if (bars.length === 0) return;
+  const visited = bars.filter(b => b.visited).length;
+  const ratio = visited / bars.length;
+  if (ratio < 0.5) return; // not yet halftime
+  // Take snapshot
+  const snapshot = {
+    taken: true,
+    ts: Date.now(),
+    barsVisited: visited,
+    totalBars: bars.length,
+    scores: {}  // jockeyId -> score at halftime
+  };
+  Object.values(liveState.jockeys || {}).forEach(j => {
+    snapshot.scores[j.id] = j.score || 0;
+  });
+  try {
+    await set(ref(db, `events/${EVENT_ID}/halftimeSnapshot`), snapshot);
+  } catch (e) { console.warn('halftime snapshot failed', e); }
+}
+
+// ===== SCORING =====
+async function applyScore(targetId, pts, label, triggerTrophy = false) {
+  const target = liveState.jockeys?.[targetId];
+  if (!target) return;
+  const by = me();
+  const newScore = (target.score || 0) + pts;
+  const logId = 'log_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const entry = {
+    id: logId,
+    byId: by?.id || 'unknown',
+    byName: by?.jockeyName || 'Anonymous',
+    targetId: target.id,
+    targetName: target.jockeyName,
+    targetHorse: target.horseName,
+    targetSilkId: target.silkId,
+    label, pts,
+    barName: currentBarName(),
+    barId: currentBarId(),
+    ts: Date.now()
+  };
+  const updates = {};
+  updates[`events/${EVENT_ID}/jockeys/${target.id}/score`] = newScore;
+  updates[`events/${EVENT_ID}/log/${logId}`] = entry;
+  try {
+    await update(ref(db), updates);
+    if (triggerTrophy && pts > 0) {
+      showMiniTrophy(label, target.horseName);
+    }
+  } catch (e) { alert('Score failed: ' + e.message); }
+}
+
+// ===== SCORE CART (pending items) =====
+let scoreCart = []; // [{ pts, label, trophy, id }]
+
+function cartTotal() {
+  return scoreCart.reduce((sum, item) => sum + item.pts, 0);
+}
+
+function renderCart() {
+  const cart = document.getElementById('score-cart');
+  const itemsEl = document.getElementById('cart-items');
+  const totalEl = document.getElementById('cart-total');
+
+  if (scoreCart.length === 0) {
+    cart.classList.add('hidden');
+    return;
+  }
+  cart.classList.remove('hidden');
+
+  const total = cartTotal();
+  const totalStr = (total > 0 ? '+' : '') + total;
+  totalEl.textContent = totalStr;
+  totalEl.style.color = total > 0 ? '#3d5c3a' : (total < 0 ? 'var(--crimson)' : 'var(--ink-soft)');
+
+  itemsEl.innerHTML = '';
+  scoreCart.forEach((item, idx) => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--cream-soft);border-radius:6px;font-size:13px;';
+    const pointsColor = item.pts > 0 ? '#3d5c3a' : 'var(--crimson)';
+    row.innerHTML = `
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--ink);">${escapeHtml(item.label)}</span>
+      <span style="display:flex;align-items:center;gap:8px;">
+        <span style="font-family:'Playfair Display',serif;font-weight:700;color:${pointsColor};">${item.pts > 0 ? '+' : ''}${item.pts}</span>
+        <button data-cart-remove="${idx}" style="background:none;border:none;color:var(--crimson);font-size:18px;line-height:1;cursor:pointer;padding:0 2px;opacity:0.6;">×</button>
+      </span>
+    `;
+    itemsEl.appendChild(row);
+  });
+
+  itemsEl.querySelectorAll('[data-cart-remove]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.cartRemove, 10);
+      scoreCart.splice(idx, 1);
+      renderCart();
+    });
+  });
+}
+
+function addToCart(pts, label, trophy = false) {
+  if (!selectedTargetId) { alert('Pick a jockey first.'); return; }
+  scoreCart.push({
+    pts, label, trophy,
+    id: 'cart_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5)
+  });
+  renderCart();
+}
+
+function clearCart() {
+  scoreCart = [];
+  renderCart();
+}
+
+async function submitCart() {
+  if (!selectedTargetId) { alert('Pick a jockey first.'); return; }
+  if (scoreCart.length === 0) return;
+  const items = [...scoreCart];
+  scoreCart = [];
+  renderCart();
+  // Apply each item sequentially so Firebase log stays in order
+  for (const item of items) {
+    await applyScore(selectedTargetId, item.pts, item.label, item.trophy);
+  }
+}
+
+// ===== SCORING BUTTON HANDLERS =====
+document.querySelectorAll('#scoring-section .score-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (!selectedTargetId) { alert('Pick a jockey first.'); return; }
+    const pts = parseInt(btn.dataset.pts, 10);
+    const label = btn.dataset.label;
+    const trophy = btn.dataset.trophy === '1';
+    addToCart(pts, label, trophy);
+    // Subtle tap feedback
+    btn.style.transform = 'scale(0.92)';
+    setTimeout(() => { btn.style.transform = ''; }, 120);
+  });
+});
+
+document.getElementById('cart-submit').addEventListener('click', submitCart);
+document.getElementById('cart-clear').addEventListener('click', () => {
+  if (scoreCart.length === 0) return;
+  if (confirm('Clear pending score?')) clearCart();
+});
+
+document.getElementById('custom-apply').addEventListener('click', () => {
+  if (!selectedTargetId) { alert('Pick a jockey first.'); return; }
+  const pts = parseInt(document.getElementById('custom-pts').value, 10);
+  if (isNaN(pts) || pts === 0) return;
+  if (pts > 5 || pts < -5) {
+    alert('Custom scores are capped at ±5 points to keep things fair.'); return;
+  }
+  const label = document.getElementById('custom-label').value.trim() || 'Custom';
+  addToCart(pts, label);
+  document.getElementById('custom-pts').value = '';
+  document.getElementById('custom-label').value = '';
+});
+
+// ===== BARS =====
+function renderBars() {
+  const list = document.getElementById('bar-list');
+  const bars = Object.values(liveState.bars || {}).sort((a, b) => (a.order || 0) - (b.order || 0));
+  list.innerHTML = '';
+  if (bars.length === 0) {
+    list.innerHTML = '<div class="empty-state">No bars yet. Add the first stop.</div>';
+    return;
+  }
+  bars.forEach(b => {
+    const item = document.createElement('div');
+    item.className = 'bar-item' + (b.visited ? ' visited' : '');
+    item.innerHTML = `
+      <div class="bar-check">${b.visited ? '✓' : ''}</div>
+      <div class="bar-name">${escapeHtml(b.name)}</div>
+      <button class="bar-remove" data-id="${b.id}" title="Remove">×</button>
+    `;
+    item.addEventListener('click', async (e) => {
+      if (e.target.classList.contains('bar-remove')) return;
+      try {
+        await update(ref(db, `events/${EVENT_ID}/bars/${b.id}`), { visited: !b.visited });
+        // Check if we just crossed halftime and capture snapshot
+        setTimeout(maybeSnapshotHalftime, 500);
+      } catch (err) { alert('Update failed: ' + err.message); }
+    });
+    list.appendChild(item);
+  });
+  list.querySelectorAll('.bar-remove').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const id = e.target.dataset.id;
+      if (!confirm('Remove this bar?')) return;
+      try {
+        await remove(ref(db, `events/${EVENT_ID}/bars/${id}`));
+      } catch (err) { alert('Remove failed: ' + err.message); }
+    });
+  });
+}
+
+document.getElementById('add-bar').addEventListener('click', addBar);
+document.getElementById('new-bar').addEventListener('keydown', e => { if (e.key === 'Enter') addBar(); });
+async function addBar() {
+  const input = document.getElementById('new-bar');
+  const name = input.value.trim();
+  if (!name) return;
+  const bars = Object.values(liveState.bars || {});
+  const maxOrder = bars.reduce((m, b) => Math.max(m, b.order || 0), 0);
+  const id = 'bar_' + Date.now().toString(36);
+  try {
+    await set(ref(db, `events/${EVENT_ID}/bars/${id}`), { id, name, visited: false, order: maxOrder + 1 });
+    input.value = '';
+  } catch (err) { alert('Add failed: ' + err.message); }
+}
+
+// ===== BETS =====
+function renderBetSelects() {
+  const jockeys = jockeyList()
+    .slice()
+    .sort((a, b) => (silkById(a.silkId).gate || 99) - (silkById(b.silkId).gate || 99));
+  const bettor = document.getElementById('bet-bettor');
+  const target = document.getElementById('bet-target');
+  [bettor, target].forEach(sel => {
+    const curr = sel.value;
+    sel.innerHTML = '<option value="">Select jockey</option>';
+    jockeys.forEach(j => {
+      const o = document.createElement('option');
+      o.value = j.id;
+      const gate = silkById(j.silkId).gate;
+      o.textContent = `#${gate} · ${j.horseName} · ${j.score || 0}pts`;
+      sel.appendChild(o);
+    });
+    if (curr) sel.value = curr;
+  });
+  // default bettor to me
+  if (me() && !bettor.value) bettor.value = myJockeyId;
+}
+
+function renderBets() {
+  renderBetSelects();
+  const list = document.getElementById('bet-list');
+  const open = Object.values(liveState.bets || {})
+    .filter(b => b.status === 'open')
+    .sort((a, b) => (b.ts || 0) - (a.ts || 0));
+  list.innerHTML = '';
+  if (open.length === 0) {
+    list.innerHTML = '<div class="empty-state">No open wagers.</div>';
+    return;
+  }
+  open.forEach(b => {
+    const typeLabel = {
+      mini: 'will win a mini game',
+      penalty: 'will face a penalty next',
+      custom: 'custom wager'
+    }[b.type] || 'wager';
+    const bettorJ = liveState.jockeys?.[b.bettorId];
+    const targetJ = liveState.jockeys?.[b.targetId];
+    const bettorGate = bettorJ ? silkById(bettorJ.silkId).gate : '?';
+    const targetGate = targetJ ? silkById(targetJ.silkId).gate : '?';
+    const item = document.createElement('div');
+    item.className = 'bet-item';
+    item.innerHTML = `
+      <div class="bet-info">
+        <strong>#${bettorGate} ${escapeHtml(b.bettorName)}</strong> wagers <strong>${b.amount}</strong> pts that
+        <strong>#${targetGate} ${escapeHtml(b.targetName)}</strong> ${typeLabel}.
+      </div>
+      <div class="bet-actions">
+        <button class="bet-win" data-bet="${b.id}" data-outcome="win">Bettor wins</button>
+        <button class="bet-lose" data-bet="${b.id}" data-outcome="lose">Bettor loses</button>
+        <button class="bet-cancel" data-bet="${b.id}" data-outcome="cancel">Void</button>
+      </div>
+    `;
+    list.appendChild(item);
+  });
+  list.querySelectorAll('[data-bet]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const id = btn.dataset.bet;
+      const outcome = btn.dataset.outcome;
+      const bet = liveState.bets?.[id];
+      if (!bet) return;
+      // Void requires Steward access
+      if (outcome === 'cancel' && !requireSteward()) return;
+      if (outcome === 'win') {
+        await applyScore(bet.bettorId, bet.amount, `Bet won vs ${bet.targetName}`);
+        await applyScore(bet.targetId, -bet.amount, `Bet lost vs ${bet.bettorName}`);
+      } else if (outcome === 'lose') {
+        await applyScore(bet.bettorId, -bet.amount, `Bet lost vs ${bet.targetName}`);
+        await applyScore(bet.targetId, bet.amount, `Bet won vs ${bet.bettorName}`);
+      }
+      try {
+        await update(ref(db, `events/${EVENT_ID}/bets/${id}`), { status: 'settled', settledAt: Date.now() });
+      } catch (e) {}
+    });
+  });
+}
+
+document.getElementById('place-bet').addEventListener('click', async () => {
+  const bettorId = document.getElementById('bet-bettor').value;
+  const targetId = document.getElementById('bet-target').value;
+  const type = document.getElementById('bet-type').value;
+  const amount = parseInt(document.getElementById('bet-amount').value, 10);
+  if (!bettorId || !targetId || !amount || amount <= 0) {
+    alert('Pick a bettor, a target, and a point amount.'); return;
+  }
+  if (amount > 5) {
+    alert('Wagers are capped at 5 points to keep things friendly.'); return;
+  }
+  if (bettorId === targetId) { alert('Bettor and target must differ.'); return; }
+  const bettor = liveState.jockeys?.[bettorId];
+  const target = liveState.jockeys?.[targetId];
+  const id = 'bet_' + Date.now().toString(36);
+  const bet = {
+    id,
+    bettorId, bettorName: bettor.jockeyName,
+    targetId, targetName: target.jockeyName,
+    type, amount, status: 'open',
+    ts: Date.now()
+  };
+  try {
+    await set(ref(db, `events/${EVENT_ID}/bets/${id}`), bet);
+    document.getElementById('bet-amount').value = '';
+  } catch (e) { alert('Bet failed: ' + e.message); }
+});
+
+// ===== LOG =====
+function renderLog() {
+  const list = document.getElementById('log-list');
+  const entries = Object.values(liveState.log || {})
+    .sort((a, b) => (b.ts || 0) - (a.ts || 0))
+    .slice(0, 60);
+  list.innerHTML = '';
+  if (entries.length === 0) {
+    list.innerHTML = '<div class="empty-state">No scoring events yet.</div>';
+    return;
+  }
+  entries.forEach(e => {
+    const silk = silkById(e.targetSilkId);
+    const div = document.createElement('div');
+    div.className = 'log-entry ' + (e.pts > 0 ? 'bonus' : 'penalty');
+    const byPhrase = e.byId === e.targetId ? '(self-scored)' : `scored by ${escapeHtml(e.byName)}`;
+    div.innerHTML = `
+      <div class="gate-badge xs">
+        <div class="gate-num">${silk.gate}</div>
+        <div class="gate-silk" style="background:${silkGradient(silk)};"></div>
+      </div>
+      <div class="log-entry-text">
+        <div class="log-entry-name">${escapeHtml(e.targetName)} · <span style="font-weight:400;font-style:italic;color:var(--ink-soft);font-size:11px;">${escapeHtml(e.targetHorse || '')}</span></div>
+        <div class="log-entry-action">${escapeHtml(e.label)} · ${byPhrase}${e.barName ? ' · @ ' + escapeHtml(e.barName) : ''} · ${timeAgo(e.ts)}</div>
+      </div>
+      <div class="log-entry-points ${e.pts > 0 ? 'pos' : 'neg'}">${e.pts > 0 ? '+' : ''}${e.pts}</div>
+      <button class="log-undo" data-id="${e.id}">Undo</button>
+    `;
+    list.appendChild(div);
+  });
+  list.querySelectorAll('.log-undo').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      if (!requireSteward()) return;
+      const id = btn.dataset.id;
+      const entry = liveState.log?.[id];
+      if (!entry) return;
+      const target = liveState.jockeys?.[entry.targetId];
+      if (!target) return;
+      const updates = {};
+      updates[`events/${EVENT_ID}/jockeys/${entry.targetId}/score`] = (target.score || 0) - entry.pts;
+      updates[`events/${EVENT_ID}/log/${id}`] = null;
+      // allow winner modal to show again if winner is undone
+      if (target.score >= WIN_SCORE && (target.score - entry.pts) < WIN_SCORE) {
+        updates[`events/${EVENT_ID}/winnerAck`] = null;
+      }
+      try { await update(ref(db), updates); } catch (err) { alert('Undo failed: ' + err.message); }
+    });
+  });
+}
+
+// ===== PROFILE & RESET =====
+function renderMyProfile() {
+  const area = document.getElementById('my-profile-area');
+  const mine = me();
+  if (!mine) {
+    area.innerHTML = '<div class="empty-state">No profile claimed on this device.</div>';
+    return;
+  }
+  const silk = silkById(mine.silkId);
+  area.innerHTML = `
+    <div class="existing-jockey-row" style="cursor:default;">
+      <div class="gate-badge">
+        <div class="gate-num">${silk.gate}</div>
+        <div class="gate-silk" style="background:${silkGradient(silk)};"></div>
+      </div>
+      <div class="existing-jockey-info">
+        <div><strong>${escapeHtml(mine.jockeyName)}</strong></div>
+        <div class="existing-jockey-horse">riding ${escapeHtml(mine.horseName)} · ${silk.name}</div>
+      </div>
+      <div style="font-family:'Playfair Display',serif;color:var(--crimson);font-weight:700;">${mine.score || 0} pts</div>
+    </div>
+  `;
+  // Update top pill
+  const pill = document.getElementById('me-pill');
+  pill.style.display = 'inline-flex';
+  document.getElementById('me-silk').style.background = silkGradient(silk);
+  document.getElementById('me-name').textContent = `#${silk.gate} · ${mine.horseName}`;
+}
+
+document.getElementById('edit-profile').addEventListener('click', () => showSignup(true));
+document.getElementById('switch-profile').addEventListener('click', () => {
+  if (!confirm('Switch jockeys on this device? Your profile stays on the leaderboard.')) return;
+  myJockeyId = null;
+  localStorage.removeItem(DEVICE_KEY);
+  showSignup(false);
+});
+document.getElementById('me-pill').addEventListener('click', () => showSignup(true));
+
+document.getElementById('reset-scores').addEventListener('click', async () => {
+  if (!requireSteward()) return;
+  if (!confirm('Reset ALL scores to 0 for every jockey? (Profiles, bars, and bets stay.) This is permanent.')) return;
+  const updates = {};
+  Object.keys(liveState.jockeys || {}).forEach(jid => {
+    updates[`events/${EVENT_ID}/jockeys/${jid}/score`] = 0;
+  });
+  updates[`events/${EVENT_ID}/log`] = null;
+  updates[`events/${EVENT_ID}/bets`] = null;
+  updates[`events/${EVENT_ID}/winnerAck`] = null;
+  try { await update(ref(db), updates); } catch (e) { alert('Reset failed: ' + e.message); }
+});
+
+// ===== STEWARD LOGIN HANDLERS =====
+document.getElementById('steward-login-btn').addEventListener('click', () => {
+  const input = document.getElementById('steward-password');
+  const err = document.getElementById('steward-login-err');
+  const ok = stewardLogin(input.value);
+  if (ok) {
+    input.value = '';
+    err.style.display = 'none';
+  } else {
+    err.style.display = 'block';
+    input.value = '';
+    setTimeout(() => { err.style.display = 'none'; }, 3000);
+  }
+});
+document.getElementById('steward-password').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('steward-login-btn').click();
+});
+document.getElementById('steward-logout-btn').addEventListener('click', () => {
+  if (confirm("Sign out of the Stewards' Room?")) stewardLogout();
+});
+document.getElementById('goto-stewards-btn').addEventListener('click', () => {
+  document.getElementById('steward-prompt-modal').classList.add('hidden');
+  // Switch to Rules tab
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.querySelector('[data-tab="rules"]').classList.add('active');
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+  document.getElementById('tab-rules').classList.remove('hidden');
+  // Scroll to stewards card
+  setTimeout(() => {
+    document.getElementById('stewards-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => document.getElementById('steward-password')?.focus(), 400);
+  }, 100);
+});
+
+// ===== AWARDS CEREMONY BUTTON HANDLERS =====
+document.getElementById('start-awards-btn').addEventListener('click', () => {
+  ceremonyState.index = 0;
+  startAwardsCeremony();
+});
+document.getElementById('stop-awards-btn').addEventListener('click', () => {
+  if (!liveState.awardsCeremony || !liveState.awardsCeremony.active) {
+    alert('No ceremony is currently active.');
+    return;
+  }
+  if (!confirm('Cancel the active ceremony? It will close on all phones.')) return;
+  stopAwardsCeremony();
+});
+
+// ===== WINNER CHECK =====
+function checkWinner() {
+  const jockeys = jockeySorted();
+  const winners = jockeys.filter(j => (j.score || 0) >= WIN_SCORE);
+  if (winners.length === 0) return;
+  const top = winners[0];
+  const acked = liveState.winnerAck?.jockeyId === top.id && liveState.winnerAck?.acknowledged;
+  if (acked) return;
+  showVictoryModal(top);
+}
+
+function showVictoryModal(winner) {
+  const silk = silkById(winner.silkId);
+  document.getElementById('winner-horse').textContent = `#${silk.gate} · ${winner.horseName}`;
+  document.getElementById('winner-jockey').textContent = `ridden by ${winner.jockeyName}`;
+  document.getElementById('winner-score').textContent = `with ${winner.score} points`;
+  document.getElementById('victory-modal').classList.remove('hidden');
+  // Confetti
+  launchConfetti();
+}
+
+document.getElementById('close-victory').addEventListener('click', async () => {
+  document.getElementById('victory-modal').classList.add('hidden');
+  const winners = jockeySorted().filter(j => (j.score || 0) >= WIN_SCORE);
+  if (winners.length > 0) {
+    try {
+      const w = winners[0];
+      await set(ref(db, `events/${EVENT_ID}/winnerAck`), {
+        jockeyId: w.id,
+        jockeyName: w.jockeyName,
+        horseName: w.horseName,
+        silkId: w.silkId,
+        scoreAtWire: w.score,
+        acknowledged: true,
+        ts: Date.now()
+      });
+    } catch (e) {}
+  }
+});
+
+// ===== END OF NIGHT AWARDS =====
+// Calculates all 6 awards from live data. Returns array of award objects.
+function calculateAwards() {
+  const jockeys = Object.values(liveState.jockeys || {});
+  const awards = [];
+
+  if (jockeys.length === 0) return awards;
+
+  // 1. RUN FOR THE ROSES — first to 30 (use winnerAck if present)
+  const wAck = liveState.winnerAck;
+  if (wAck && wAck.acknowledged && wAck.jockeyId) {
+    awards.push({
+      key: 'run_for_roses',
+      title: 'Run for the Roses',
+      subtitle: 'First across the wire',
+      winner: {
+        jockeyId: wAck.jockeyId,
+        jockeyName: wAck.jockeyName,
+        horseName: wAck.horseName,
+        silkId: wAck.silkId,
+        gate: silkById(wAck.silkId).gate
+      },
+      stat: `Hit ${wAck.scoreAtWire || 30} points first`
+    });
+  }
+
+  // 2. QUEEN/KING OF THE DERBY — highest final score
+  const bySort = [...jockeys].sort((a, b) => (b.score || 0) - (a.score || 0));
+  const king = bySort[0];
+  if (king) {
+    awards.push({
+      key: 'queen_of_derby',
+      title: 'Queen of the Derby',
+      subtitle: 'Highest final score',
+      winner: {
+        jockeyId: king.id,
+        jockeyName: king.jockeyName,
+        horseName: king.horseName,
+        silkId: king.silkId,
+        gate: silkById(king.silkId).gate
+      },
+      stat: `${king.score || 0} points`
+    });
+  }
+
+  // 3. DARK HORSE — last at halftime, top 3 by end
+  const snap = liveState.halftimeSnapshot;
+  if (snap && snap.scores) {
+    const halfScores = jockeys.map(j => ({
+      jockey: j,
+      halfScore: snap.scores[j.id] ?? 0,
+      finalScore: j.score || 0
+    }));
+    // Sort by halftime score ASC — last place first
+    const lastAtHalf = [...halfScores].sort((a, b) => a.halfScore - b.halfScore)[0];
+    // Final top 3
+    const top3Ids = new Set(bySort.slice(0, 3).map(j => j.id));
+    if (lastAtHalf && top3Ids.has(lastAtHalf.jockey.id) && jockeys.length >= 3) {
+      const j = lastAtHalf.jockey;
+      awards.push({
+        key: 'dark_horse',
+        title: 'Dark Horse',
+        subtitle: 'From last at halftime to the podium',
+        winner: {
+          jockeyId: j.id,
+          jockeyName: j.jockeyName,
+          horseName: j.horseName,
+          silkId: j.silkId,
+          gate: silkById(j.silkId).gate
+        },
+        stat: `${lastAtHalf.halfScore} → ${lastAtHalf.finalScore} pts`
+      });
+    }
+  }
+
+  // 4. FAST BREAK — most points earned at a single bar
+  const perBarPerJockey = {}; // jockeyId -> { barName -> netPts }
+  Object.values(liveState.log || {}).forEach(e => {
+    if (!e.pts || !e.targetId) return;
+    const bar = e.barName || 'Pre-crawl';
+    if (!perBarPerJockey[e.targetId]) perBarPerJockey[e.targetId] = {};
+    perBarPerJockey[e.targetId][bar] = (perBarPerJockey[e.targetId][bar] || 0) + e.pts;
+  });
+  let fastBreak = null;
+  Object.entries(perBarPerJockey).forEach(([jid, bars]) => {
+    Object.entries(bars).forEach(([bar, pts]) => {
+      if (!fastBreak || pts > fastBreak.pts) {
+        fastBreak = { jockeyId: jid, bar, pts };
+      }
+    });
+  });
+  if (fastBreak && fastBreak.pts > 0) {
+    const j = liveState.jockeys[fastBreak.jockeyId];
+    if (j) {
+      awards.push({
+        key: 'fast_break',
+        title: 'Fast Break',
+        subtitle: 'Most points at a single bar',
+        winner: {
+          jockeyId: j.id,
+          jockeyName: j.jockeyName,
+          horseName: j.horseName,
+          silkId: j.silkId,
+          gate: silkById(j.silkId).gate
+        },
+        stat: `+${fastBreak.pts} pts at ${fastBreak.bar}`
+      });
+    }
+  }
+
+  // 5. BOOKMAKER — most net pts from bets. Only if bets exist.
+  const bets = Object.values(liveState.bets || {});
+  const settledBets = bets.filter(b => b.status === 'settled');
+  if (settledBets.length > 0) {
+    // Scan log entries that are bet-related
+    const betNet = {}; // jockeyId -> net pts
+    Object.values(liveState.log || {}).forEach(e => {
+      if (!e.label || !e.label.startsWith('Bet ')) return;
+      betNet[e.targetId] = (betNet[e.targetId] || 0) + (e.pts || 0);
+    });
+    const bookmakerEntry = Object.entries(betNet).sort((a, b) => b[1] - a[1])[0];
+    if (bookmakerEntry && bookmakerEntry[1] > 0) {
+      const j = liveState.jockeys[bookmakerEntry[0]];
+      if (j) {
+        awards.push({
+          key: 'bookmaker',
+          title: 'The Bookmaker',
+          subtitle: 'Most net points from bets',
+          winner: {
+            jockeyId: j.id,
+            jockeyName: j.jockeyName,
+            horseName: j.horseName,
+            silkId: j.silkId,
+            gate: silkById(j.silkId).gate
+          },
+          stat: `+${bookmakerEntry[1]} pts from wagers`
+        });
+      }
+    }
+  }
+
+  // 6. DROPPED THE REINS — most penalty points (booby prize). Only if ≥3 penalties or ≤ -6 pts.
+  const penalties = {}; // jockeyId -> { totalNegPts, count }
+  Object.values(liveState.log || {}).forEach(e => {
+    if ((e.pts || 0) >= 0) return; // only negative
+    if (!penalties[e.targetId]) penalties[e.targetId] = { totalNegPts: 0, count: 0 };
+    penalties[e.targetId].totalNegPts += e.pts;
+    penalties[e.targetId].count += 1;
+  });
+  const droppedEntry = Object.entries(penalties).sort((a, b) => a[1].totalNegPts - b[1].totalNegPts)[0];
+  if (droppedEntry) {
+    const [jid, { totalNegPts, count }] = droppedEntry;
+    if (count >= 3 || totalNegPts <= -6) {
+      const j = liveState.jockeys[jid];
+      if (j) {
+        awards.push({
+          key: 'dropped_reins',
+          title: 'Dropped the Reins',
+          subtitle: 'Most penalties — a humbling distinction',
+          winner: {
+            jockeyId: j.id,
+            jockeyName: j.jockeyName,
+            horseName: j.horseName,
+            silkId: j.silkId,
+            gate: silkById(j.silkId).gate
+          },
+          stat: `${totalNegPts} pts across ${count} penalt${count === 1 ? 'y' : 'ies'}`,
+          booby: true
+        });
+      }
+    }
+  }
+
+  return awards;
+}
+
+// ===== AWARDS CEREMONY =====
+let ceremonyState = { index: 0 };
+
+async function startAwardsCeremony() {
+  if (!requireSteward()) return;
+  const awards = calculateAwards();
+  if (awards.length === 0) {
+    alert('No awards can be given yet — need more scoring activity.');
+    return;
+  }
+  if (!confirm(`End the night and reveal ${awards.length} awards to all jockeys?`)) return;
+  try {
+    await set(ref(db, `events/${EVENT_ID}/awardsCeremony`), {
+      active: true,
+      startedAt: Date.now(),
+      awards
+    });
+  } catch (e) { alert('Could not start ceremony: ' + e.message); }
+}
+
+async function stopAwardsCeremony() {
+  if (!requireSteward()) return;
+  try {
+    await set(ref(db, `events/${EVENT_ID}/awardsCeremony`), null);
+  } catch (e) {}
+}
+
+function renderAwardsCeremony() {
+  const modal = document.getElementById('awards-modal');
+  const c = liveState.awardsCeremony;
+  if (!c || !c.active || !c.awards || c.awards.length === 0) {
+    modal.classList.add('hidden');
+    return;
+  }
+  // Determine if I've dismissed it locally already this session
+  const localDismissedKey = 'derby_ceremony_dismissed_' + (c.startedAt || 0);
+  if (localStorage.getItem(localDismissedKey) === '1') {
+    modal.classList.add('hidden');
+    return;
+  }
+  modal.classList.remove('hidden');
+
+  const idx = Math.max(0, Math.min(ceremonyState.index, c.awards.length - 1));
+  const a = c.awards[idx];
+  const silk = silkById(a.winner.silkId);
+  const isLast = idx === c.awards.length - 1;
+
+  const container = document.getElementById('awards-modal-body');
+  container.innerHTML = `
+    <div class="crown" style="color:var(--gold-deep);">✦ · CLOSING CEREMONY · ✦</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-soft);margin-bottom:8px;">Award ${idx + 1} of ${c.awards.length}</div>
+    <svg class="trophy-svg" width="68" height="78" viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="aGold${idx}" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="${a.booby ? '#888' : '#e4c878'}"/>
+          <stop offset="50%" stop-color="${a.booby ? '#666' : '#c9a961'}"/>
+          <stop offset="100%" stop-color="${a.booby ? '#444' : '#a8873f'}"/>
+        </linearGradient>
+      </defs>
+      <path d="M 20 10 L 60 10 L 58 40 Q 58 55 40 55 Q 22 55 22 40 Z" fill="url(#aGold${idx})" stroke="#3d2108" stroke-width="1.5"/>
+      <path d="M 20 15 Q 10 15 10 25 Q 10 35 20 35" fill="none" stroke="url(#aGold${idx})" stroke-width="3"/>
+      <path d="M 60 15 Q 70 15 70 25 Q 70 35 60 35" fill="none" stroke="url(#aGold${idx})" stroke-width="3"/>
+      <path d="M 30 25 L 32 22 L 33 25 L 35 24 L 37 27 L 42 27 L 45 28 L 48 32 L 48 38 L 46 38 L 46 34 L 44 34 L 44 38 L 42 38 L 42 34 L 35 34 L 35 38 L 33 38 L 33 34 L 31 34 L 30 30 Z" fill="${a.booby ? '#333' : '#6b0714'}"/>
+      <rect x="36" y="55" width="8" height="10" fill="url(#aGold${idx})"/>
+      <rect x="26" y="65" width="28" height="6" fill="url(#aGold${idx})" rx="1"/>
+      <rect x="22" y="71" width="36" height="8" fill="url(#aGold${idx})" rx="1"/>
+    </svg>
+    <h2 style="font-family:'Playfair Display',serif;font-size:26px;color:${a.booby ? 'var(--ink-soft)' : 'var(--crimson)'};font-weight:700;margin-bottom:2px;">${escapeHtml(a.title)}</h2>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--ink-soft);margin-bottom:14px;">${escapeHtml(a.subtitle)}</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px;">
+      <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--crimson);">#${a.winner.gate}</div>
+      <div style="width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);background:${silkGradient(silk)};"></div>
+    </div>
+    <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--ink);margin-bottom:2px;">${escapeHtml(a.winner.horseName)}</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--ink-soft);margin-bottom:6px;">ridden by ${escapeHtml(a.winner.jockeyName)}</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:13px;color:var(--gold-deep);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;">${escapeHtml(a.stat)}</div>
+    <div style="display:flex;gap:8px;">
+      ${idx > 0 ? '<button class="ghost" id="awards-prev" style="flex:1;">← Previous</button>' : ''}
+      ${!isLast ? '<button class="primary" id="awards-next" style="flex:2;">Next award →</button>' : '<button class="primary" id="awards-done" style="flex:2;">Close ceremony</button>'}
+    </div>
+  `;
+
+  const nextBtn = document.getElementById('awards-next');
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    ceremonyState.index = Math.min(c.awards.length - 1, ceremonyState.index + 1);
+    renderAwardsCeremony();
+    launchConfetti();
+  });
+  const prevBtn = document.getElementById('awards-prev');
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    ceremonyState.index = Math.max(0, ceremonyState.index - 1);
+    renderAwardsCeremony();
+  });
+  const doneBtn = document.getElementById('awards-done');
+  if (doneBtn) doneBtn.addEventListener('click', () => {
+    localStorage.setItem(localDismissedKey, '1');
+    modal.classList.add('hidden');
+  });
+}
+
+// ===== CONFETTI =====
+function launchConfetti() {
+  const container = document.createElement('div');
+  container.className = 'confetti-container';
+  document.body.appendChild(container);
+  const colours = ['#8b0a1a', '#c9a961', '#e8b4b8', '#f5ecd7', '#2e4a3a', '#6b2737'];
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.background = colours[Math.floor(Math.random() * colours.length)];
+    piece.style.animationDelay = Math.random() * 0.8 + 's';
+    piece.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+    piece.style.width = (4 + Math.random() * 6) + 'px';
+    piece.style.height = (8 + Math.random() * 8) + 'px';
+    container.appendChild(piece);
+  }
+  setTimeout(() => container.remove(), 4000);
+}
+
+// ===== MINI TROPHY (for achievements like starting bonuses) =====
+function showMiniTrophy(label, horse) {
+  document.getElementById('mini-trophy-label').textContent = label;
+  document.getElementById('mini-trophy-horse').textContent = `for ${horse}`;
+  document.getElementById('mini-trophy-modal').classList.remove('hidden');
+  launchConfetti();
+  setTimeout(() => {
+    document.getElementById('mini-trophy-modal').classList.add('hidden');
+  }, 2800);
+}
+
+// ===== MAIN RENDER =====
+function renderAll() {
+  // Show sign-up if no profile claimed on this device
+  if (!myJockeyId || !liveState.jockeys?.[myJockeyId]) {
+    // If we had an ID but it's been deleted, clear it
+    if (myJockeyId && !liveState.jockeys?.[myJockeyId]) {
+      localStorage.removeItem(DEVICE_KEY);
+      myJockeyId = null;
+    }
+    showSignup(false);
+  } else {
+    hideSignup();
+  }
+  renderRaceTrack();
+  renderLeaderboard();
+  renderScoreTargets();
+  renderBars();
+  renderBets();
+  renderLog();
+  renderMyProfile();
+  renderStewardUI();
+  renderAwardsCeremony();
+}
+
+// Periodic log timestamp refresh
+setInterval(() => {
+  if (!document.getElementById('tab-log').classList.contains('hidden')) renderLog();
+}, 30000);
+
+// Initial render even before first data callback
+renderAll();
+
+// Expose for debugging
+window.__derby = { liveState, SILKS, generateHorseName };
+</script>
+
+</body>
+</html>
